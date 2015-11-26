@@ -90,52 +90,95 @@ namespace Reino
             this.Close();
         }
 
+        private void Ask_new_connection()
+        {
+            string message = "Yhdistettäessä tapautui virhe... Yritetäänkö uudelleen?";
+            string caption = "Virheilmoitus";
+            MessageBoxButton buttons = MessageBoxButton.OKCancel;
+            // Show message box
+            MessageBoxResult result = MessageBox.Show(message, caption, buttons);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    connectThread = new Thread(new ThreadStart(Try_to_connect));
+                    connectThread.Start();
+                    break;
+                case MessageBoxResult.Cancel:
+                    this.Dispatcher.Invoke((Action)(() =>
+                    {
+                        this.Shutdown();
+                    }));
+                    break;
+            }
+        }
+
         private void Change_to_tykki(object sender, RoutedEventArgs e)
         {
-            Byte[] command = new byte[5] { 0x2, 0x47, 0x82, 0x82, 0x3 };
-            client.Client.Send(command);
-            command = new byte[5] { 0x2, 0x47, 0x85, 0x82, 0x3 };
-            client.Client.Send(command);
-            command = new byte[5] { 0x2, 0x47, 0x86, 0x82, 0x3 };
-            client.Client.Send(command);
-            command = new byte[5] { 0x2, 0x47, 0x87, 0x82, 0x3 };
-            client.Client.Send(command);
+            try
+            {
+                Byte[] command = new byte[5] { 0x2, 0x47, 0x82, 0x82, 0x3 };
+                client.Client.Send(command);
+                command = new byte[5] { 0x2, 0x47, 0x85, 0x82, 0x3 };
+                client.Client.Send(command);
+                command = new byte[5] { 0x2, 0x47, 0x86, 0x82, 0x3 };
+                client.Client.Send(command);
+                command = new byte[5] { 0x2, 0x47, 0x87, 0x82, 0x3 };
+                client.Client.Send(command);
+            } catch (SocketException)
+            {
+                Ask_new_connection();
+            }
         }
 
         private void Change_to_stram(object sender, RoutedEventArgs e)
         {
-            Byte[] command = new byte[5] { 0x2, 0x47, 0x82, 0x82, 0x3 };
-            client.Client.Send(command);
-            command = new byte[5] { 0x2, 0x47, 0x85, 0x82, 0x3 };
-            client.Client.Send(command);
-            command = new byte[5] { 0x2, 0x47, 0x86, 0x82, 0x3 };
-            client.Client.Send(command);
-            command = new byte[5] { 0x2, 0x47, 0x87, 0x83, 0x3 };
-            client.Client.Send(command);
+            try { 
+                Byte[] command = new byte[5] { 0x2, 0x47, 0x82, 0x82, 0x3 };
+                client.Client.Send(command);
+                command = new byte[5] { 0x2, 0x47, 0x85, 0x82, 0x3 };
+                client.Client.Send(command);
+                command = new byte[5] { 0x2, 0x47, 0x86, 0x82, 0x3 };
+                client.Client.Send(command);
+                command = new byte[5] { 0x2, 0x47, 0x87, 0x83, 0x3 };
+                client.Client.Send(command);
+            } catch (SocketException)
+            {
+                Ask_new_connection();
+            }
         }
 
         private void Change_to_IPcamera(object sender, RoutedEventArgs e)
         {
-            Byte[] command = new byte[5] { 0x2, 0x47, 0x82, 0x82, 0x3 };
-            client.Client.Send(command);
-            command = new byte[5] { 0x2, 0x47, 0x85, 0x82, 0x3 };
-            client.Client.Send(command);
-            command = new byte[5] { 0x2, 0x47, 0x86, 0x82, 0x3 };
-            client.Client.Send(command);
-            command = new byte[5] { 0x2, 0x47, 0x87, 0x84, 0x3 };
-            client.Client.Send(command);
+            try { 
+                Byte[] command = new byte[5] { 0x2, 0x47, 0x82, 0x82, 0x3 };
+                client.Client.Send(command);
+                command = new byte[5] { 0x2, 0x47, 0x85, 0x82, 0x3 };
+                client.Client.Send(command);
+                command = new byte[5] { 0x2, 0x47, 0x86, 0x82, 0x3 };
+                client.Client.Send(command);
+                command = new byte[5] { 0x2, 0x47, 0x87, 0x84, 0x3 };
+                client.Client.Send(command);
+            } catch (SocketException)
+            {
+                Ask_new_connection();
+            }
         }
 
         private void Change_to_omena(object sender, RoutedEventArgs e)
         {
-            Byte[] command = new byte[5] { 0x2, 0x47, 0x82, 0x82, 0x3 };
-            client.Client.Send(command);
-            command = new byte[5] { 0x2, 0x47, 0x85, 0x82, 0x3 };
-            client.Client.Send(command);
-            command = new byte[5] { 0x2, 0x47, 0x86, 0x82, 0x3 };
-            client.Client.Send(command);
-            command = new byte[5] { 0x2, 0x47, 0x87, 0x85, 0x3 };
-            client.Client.Send(command);
+            try {
+                Byte[] command = new byte[5] { 0x2, 0x47, 0x82, 0x82, 0x3 };
+                client.Client.Send(command);
+                command = new byte[5] { 0x2, 0x47, 0x85, 0x82, 0x3 };
+                client.Client.Send(command);
+                command = new byte[5] { 0x2, 0x47, 0x86, 0x82, 0x3 };
+                client.Client.Send(command);
+                command = new byte[5] { 0x2, 0x47, 0x87, 0x85, 0x3 };
+                client.Client.Send(command);
+            } catch (SocketException)
+            {
+                Ask_new_connection();
+            }
         }
 
         private void Close_window(object sender, EventArgs e)
