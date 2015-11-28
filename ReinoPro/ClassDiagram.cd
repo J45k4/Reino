@@ -61,7 +61,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABABAAAAAABQMAgEMAgABAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABABAAAAAABQMAgEMAgABAAAAgAAABAAAA=</HashCode>
       <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\BlackboxMatrix.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -73,7 +73,7 @@
   <Class Name="Blackboxmatrix.Connection">
     <Position X="8.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAAAABAMAggIAgAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABAAAAAAAABAMAggIAgAAAAAAAAAABAAAA=</HashCode>
       <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\Connection.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -81,7 +81,7 @@
   <Class Name="ReinoPro.Connection">
     <Position X="12.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAAAEAAAIAAAAAAAAAAAAAABAAAAAg=</HashCode>
+      <HashCode>AAAAABBAQAIAAAAIAEAAAIAAAAAAAAAAAAAABIAAAAg=</HashCode>
       <FileName>Connection.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -89,7 +89,7 @@
   <Interface Name="Blackboxmatrix.IConnection">
     <Position X="12.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <HashCode>AAAAAABAAAIAAAAAAEAAAIAAAAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\IConnection.cs</FileName>
     </TypeIdentifier>
   </Interface>

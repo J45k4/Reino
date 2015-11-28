@@ -1,22 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 
 namespace Blackboxmatrix
 {
     class Connection : IControl
     {
         private IConnection connection;
+        BlackboxMatrix matrix;
 
-        public Connection(IConnection connection)
+        public Connection(IConnection connection, BlackboxMatrix matrix)
         {
+            this.matrix = matrix;
             this.connection = connection;
             this.connection.New_message = new ProsessMessageDelegate(Prosess_message);
         }
 
         private void Prosess_message(Byte[] buffer)
         {
-
+            if (buffer[1] == 83)
+            {
+                for (int i = 2; i < matrix.Ios.Length; i++)
+                {
+                    matrix.Set_input(matrix.Ios[i - 2], matrix.Inputs[buffer[i] - 128]);
+                }
+            }
         }
 
         private void Connection_NewResponse(object sender, EventArgs e)

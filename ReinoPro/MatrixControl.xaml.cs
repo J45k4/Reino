@@ -60,16 +60,25 @@ namespace ReinoPro
         {
             if (e.Io == IoType.KVM)
             {
-                Button b = (Button)matrix.Children[e.Index];
-                b.Background = Brushes.Green;
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    Button b = (Button)matrix.Children[e.Index];
+                    b.Background = Brushes.Green;
+                }));
             } else if (e.Io == IoType.VideoOnly)
             {
-                Button b = (Button)matrix.Children[e.Index];
-                b.Background = Brushes.Orange;
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    Button b = (Button)matrix.Children[e.Index];
+                    b.Background = Brushes.Orange;
+                }));
             } else if (e.Io == IoType.EMPTY)
             {
-                Button b = (Button)matrix.Children[e.Index];
-                b.Background = Brushes.White;
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    Button b = (Button)matrix.Children[e.Index];
+                    b.Background = Brushes.White;
+                }));
             }
         }
 

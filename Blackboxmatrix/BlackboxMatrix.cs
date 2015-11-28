@@ -8,13 +8,14 @@ namespace Blackboxmatrix
     {
         protected Input[] inputs;
         protected Io[] ios;
-        private Connection connection;
+        private IConnection connection;
 
         public event System.EventHandler<PortStateChangedEventArgs> Port_state_changed;
 
         public BlackboxMatrix(IConnection conn)
         {
-            connection = new Connection(conn);
+            connection = conn;
+            connection.New_message = new ProsessMessageDelegate(Prosess_message);
         }
 
         public BlackboxMatrix()
@@ -35,6 +36,17 @@ namespace Blackboxmatrix
             get
             {
                 return inputs;
+            }
+        }
+
+        private void Prosess_message(Byte[] buffer)
+        {
+            if (buffer[1] == 83)
+            {
+                for (int i = 0; i < Ios.Length; i++)
+                {
+                    Set_input(i, buffer[i+2] - 128);
+                }
             }
         }
 
@@ -66,7 +78,6 @@ namespace Blackboxmatrix
 
         public void Change_state_to(Io state, IoType to)
         {
-            connection.Change_state_to(state, to);
             if (Port_state_changed != null)
             {
                 Port_state_changed(this, new PortStateChangedEventArgs() { Index = Get_index_of(state), Io = to });
@@ -84,7 +95,6 @@ namespace Blackboxmatrix
 
         public void Set_input(Io io, Input input)
         {
-            connection.Set_input(io, input);
             if (Port_state_changed != null)
             {
                 Port_state_changed(this, new PortStateChangedEventArgs() { Index = Get_index_of(io), Io = IoType.EMPTY });
@@ -94,9 +104,20 @@ namespace Blackboxmatrix
             }
         }
 
+        public void Set_input(int io, int input)
+        {
+            if (Port_state_changed != null)
+            {
+                if (ios[io] == null) ios[io] = new Io();
+                Port_state_changed(this, new PortStateChangedEventArgs() { Index = Get_index_of(io), Io = IoType.EMPTY });
+                ios[io].Input = input;
+                Port_state_changed(this, new PortStateChangedEventArgs() { Index = Get_index_of(io), Io = IoType.VideoOnly });
+            }
+
+        }
+
         public void Io_off(Io Io)
         {
-            connection.Io_off(Io);
             if (Port_state_changed != null)
             {
                 Port_state_changed(this, new PortStateChangedEventArgs() { Index = Get_index_of(Io), Io = IoType.EMPTY });
@@ -112,7 +133,6 @@ namespace Blackboxmatrix
 
         public void Input_off(Input input)
         {
-            connection.Input_off(input);
         }
 
         public void Input_off(int index)
@@ -137,7 +157,8 @@ namespace Blackboxmatrix
 
         public void Refresh()
         {
-
+            byte[] packet = new byte[] { 0x2, 0x53, 0x03 };
+            connection.Send(packet);
         }
 
         public void fill()
