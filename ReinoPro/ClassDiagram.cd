@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Blackboxmatrix.Input">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\Input.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Blackboxmatrix.Io">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAIAAAAAAAAAAEAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\Io.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Blackboxmatrix.ACX0816">
+    <Position X="3" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\ACX0816.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Blackboxmatrix.VideoOnly" Collapsed="true">
+    <Position X="5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\VideoOnly.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Blackboxmatrix.KVM" Collapsed="true">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\KVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReinoPro.MatrixElementModel">
+    <Position X="11.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>MatrixElementModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Blackboxmatrix.BlackboxMatrix">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <AssociationLine Name="inputs" Type="Blackboxmatrix.Input" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.062" Y="1.75" />
+        <Point X="4.062" Y="1.375" />
+        <Point X="11.25" Y="1.375" />
+        <Point X="11.25" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ios" Type="Blackboxmatrix.Io" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.25" Y="1.75" />
+        <Point X="4.25" Y="1.375" />
+        <Point X="6.75" Y="1.375" />
+        <Point X="6.75" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABABAAAAAABQMAgEMAgABAAAAgAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\BlackboxMatrix.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="inputs" />
+      <Field Name="ios" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Blackboxmatrix.Connection">
+    <Position X="8.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAABAMAggIAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\Connection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ReinoPro.Connection">
+    <Position X="12.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAEAAAIAAAAAAAAAAAAAABAAAAAg=</HashCode>
+      <FileName>Connection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Blackboxmatrix.IConnection">
+    <Position X="12.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\IConnection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Blackboxmatrix.IControl">
+    <Position X="6" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAMAgAIAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\IControl.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

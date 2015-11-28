@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>c746054d-e59a-41cd-aee8-6b32d49acc33</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Blackboxmatrix</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ACX0816.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BlackboxMatrix.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Empty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Io.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)KVM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PortStateChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VideoOnly.cs" />
+  </ItemGroup>
+</Project>
