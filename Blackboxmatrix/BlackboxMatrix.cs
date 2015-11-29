@@ -56,6 +56,9 @@ namespace Blackboxmatrix
             if (ios[io] == null) ios[io] = new Io();
             ios[io].Input = input;
             Change_state_to(io, type);
+            Byte[] command = new byte[5] { 0x2, 0x47, Convert_to_byte(io), Convert_to_byte(input), 0x3 };
+            connection.Send(command);
+
             /*if (ios[io].Input != input)
             {
                 connection.Io_off(ios[io]);
@@ -74,6 +77,14 @@ namespace Blackboxmatrix
                     }
                 }
             }*/
+        }
+
+        private Byte Convert_to_byte(int i)
+        {
+            i++;
+            Byte k = 128;
+            k += (byte)i;
+            return k;
         }
 
         public void Change_state_to(Io state, IoType to)
@@ -137,7 +148,7 @@ namespace Blackboxmatrix
 
         public void Input_off(int index)
         {
-
+            byte[] packet = new byte[] { 0x2, 0x48, Convert_to_byte(index), 0x03 };
         }
 
         private int Get_index_of(Io io)

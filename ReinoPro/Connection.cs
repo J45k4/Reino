@@ -55,7 +55,10 @@ namespace ReinoPro
                     byte[] buffer = new byte[512];
                     while(!socketThreadRunning)
                     {
-                        int bytes = stream.Read(buffer, 0, buffer.Length);
+                        try
+                        {
+                            int bytes = stream.Read(buffer, 0, buffer.Length);
+                        } catch (SocketException e) { break; }
                         New_message(buffer);
                     }
                     }

@@ -15,7 +15,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Blackboxmatrix.ACX0816">
-    <Position X="3" Y="6.5" Width="1.5" />
+    <Position X="3" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\ACX0816.cs</FileName>
@@ -61,7 +61,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABABAAAAAABQMAgEMAgABAAAAgAAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABABAAAAAABQMAgEMAgABACAAgAAABAAAA=</HashCode>
       <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackboxmatrix\BlackboxMatrix.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
