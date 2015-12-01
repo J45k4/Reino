@@ -14,5 +14,7 @@ namespace Blackboxmatrix
 
         void Connect(string ip, int port);
         void Send(Byte[] buffer);
+
+        void Close();
     }
 }

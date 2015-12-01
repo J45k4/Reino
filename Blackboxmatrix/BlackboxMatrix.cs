@@ -23,6 +23,16 @@ namespace Blackboxmatrix
             
         }
 
+        ~BlackboxMatrix()
+        {
+            connection.Close();
+        }
+
+        public void Close()
+        {
+            connection.Close();
+        }
+
         public Io[] Ios
         {
             get
@@ -45,12 +55,80 @@ namespace Blackboxmatrix
             {
                 for (int i = 0; i < Ios.Length; i++)
                 {
-                    Set_input(i, buffer[i+2] - 128);
+                    if (ios[i] == null) ios[i] = new Io();
+                    ios[i].Input = buffer[i + 2] - 129;
+                    if (buffer[i + 2 + 16] - 129 == ios[i].Input)
+                    {
+                        ios[i].Iotype = IoType.KVM;
+                        Raise_port_changed_event(i, buffer[i + 2] - 129, IoType.KVM);
+                    } else
+                    {
+                        ios[i].Iotype = IoType.VideoOnly;
+                        Raise_port_changed_event(i, buffer[i + 2] - 129, IoType.VideoOnly);
+                    }                    
                 }
             }
         }
 
+        public void Set(int i, IoType type)
+        {
+            Set(i / inputs.Length, i % inputs.Length, type);
+        }
 
+        public void Set(int io, int input, IoType type)
+        {
+            if (type == IoType.EMPTY)
+            {
+                ios[io].Iotype = IoType.EMPTY;
+                ios[io].Input = -1;
+            }
+            else
+            {
+                Set_state(io, input);
+                if (ios[io] == null)
+                {
+                    ios[io] = new Io();
+                    ios[io].Input = input;
+                    ios[io].Iotype = type;                    
+                }
+                else
+                {
+                    ios[io].Iotype = type;
+                    if (ios[io].Input > -1 && ios[io].Input != input) Raise_port_changed_event(io, ios[io].Input, IoType.EMPTY);
+                    ios[io].Input = input;
+                }
+                if (type == IoType.KVM)
+                {
+                    for (int i = 0; i < ios.Length; i++)
+                    {
+                        if (i != io)
+                        {
+                            if (ios[i] == null) ios[i] = new Io();
+                            else
+                            {
+                                if (ios[i].Input == input)
+                                {
+                                    if (ios[i].Iotype == IoType.KVM)
+                                    {
+                                        ios[i].Iotype = IoType.VideoOnly;
+                                        Raise_port_changed_event(i, ios[i].Input, IoType.VideoOnly);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        void Set_state(int io, int input)
+        {
+            byte[] packet = new byte[5] { 0x2, 0x47, Convert_to_byte(io), Convert_to_byte(input), 0x3 };
+            connection.Send(packet);
+        }
+
+
+        /*
         public void Set(int input, int io, IoType type)
         {
             if (ios[io] == null) ios[io] = new Io();
@@ -59,7 +137,7 @@ namespace Blackboxmatrix
             Byte[] command = new byte[5] { 0x2, 0x47, Convert_to_byte(io), Convert_to_byte(input), 0x3 };
             connection.Send(command);
 
-            /*if (ios[io].Input != input)
+            if (ios[io].Input != input)
             {
                 connection.Io_off(ios[io]);
                 if (type == IoType.KVM)
@@ -76,8 +154,19 @@ namespace Blackboxmatrix
                         }
                     }
                 }
-            }*/
+            }
+        }*/
+
+
+        private void Raise_port_changed_event(int io, int input, IoType type)
+        {
+            if (Port_state_changed != null)
+            {
+                Console.WriteLine(io * inputs.Length + input);
+                Port_state_changed(this, new PortStateChangedEventArgs() { Index = io * inputs.Length + input, Io = type });
+            }
         }
+
 
         private Byte Convert_to_byte(int i)
         {
@@ -137,9 +226,7 @@ namespace Blackboxmatrix
 
         public void Io_off(int index)
         {
-            if (ios[index] == null) ios[index] = new Io();
-            ios[index].Input = -1;
-            ios[index].Iotype = IoType.EMPTY;
+            byte[] packet = new byte[] { 0x2, 0x48, Convert_to_byte(index), 0x03 };
         }
 
         public void Input_off(Input input)
@@ -149,6 +236,7 @@ namespace Blackboxmatrix
         public void Input_off(int index)
         {
             byte[] packet = new byte[] { 0x2, 0x48, Convert_to_byte(index), 0x03 };
+            connection.Send(packet);
         }
 
         private int Get_index_of(Io io)
