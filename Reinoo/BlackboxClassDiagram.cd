@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Matrix.Matrix">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEBAAAAAIABQAAAAABAEIAIACAAAgCAAAAAAAIAEA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackbox\Matrix.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Matrix.Device" Collapsed="true">
+    <Position X="8" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackbox\Device.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Matrix.PortStateChangedEventArgs">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackbox\PortStateChangedEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Matrix.Cpu">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackbox\Cpu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Matrix.Conn">
+    <Position X="12.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAIAAAACAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackbox\Conn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Matrix.IConnection">
+    <Position X="10.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAEAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackbox\IConnection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Matrix.IControl">
+    <Position X="3.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAABAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackbox\IControl.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Matrix.IUIControl">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEBAAAAAAABAAAAAAAAEIAAAAAAAgAAAAAAAAIAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackbox\IUIControl.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Matrix.NameType">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAA=</HashCode>
+      <FileName>C:\Users\Jaska\OneDrive\koodaus\Matrix\Blackbox\NameType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>ddc4cd4a-8199-4acc-8488-ae0b22b6f07f</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Matrix</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ACX0816.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConnectionState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConnectionStateChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Matrix.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Conn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cpu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Device.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IUIControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NameChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NameType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PortStateChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandType.cs" />
+  </ItemGroup>
+</Project>
